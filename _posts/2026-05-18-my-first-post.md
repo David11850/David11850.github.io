@@ -7,3 +7,8 @@ categories: algorithm
 ## this is just a test
 ok,i will tell you a truth.
 i love coding.
+
+```
+#include<bits/stdc++.h>
+using namespace std;
+```

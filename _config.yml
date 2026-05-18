@@ -77,6 +77,10 @@ navs:
     label: 分类
 
   -
+    href: /algorithm/
+    label: 算法
+
+  -
     href: /archives/
     label: 归档
     mobile-hidden: true

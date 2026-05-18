@@ -1,136 +1,174 @@
 /* ============================================================
-   Modern UI Overrides — enhances primer-css base with a clean,
-   contemporary look. Safe to remove: just drop the <link> tag.
+   Coding Flavor Theme — developer/terminal-inspired dark UI.
+   Safe to remove: drop the <link> tag in header.html.
    ============================================================ */
 
-/* ---- Custom Properties ---- */
+/* ---- Custom Properties (GitHub Dark-inspired) ---- */
 :root {
-  --color-primary: #4f6ef7;
-  --color-primary-dark: #3b54d4;
-  --color-accent: #f59e0b;
-  --color-bg: #f8f9fc;
-  --color-surface: #ffffff;
-  --color-text: #1e293b;
-  --color-text-muted: #64748b;
-  --color-border: #e2e8f0;
-  --color-shadow: rgba(0, 0, 0, 0.06);
-  --color-shadow-hover: rgba(0, 0, 0, 0.10);
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --border-default: #30363d;
+  --border-muted: #21262d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+  --accent-blue: #58a6ff;
+  --accent-green: #3fb950;
+  --accent-purple: #bc8cff;
+  --accent-orange: #f0883e;
+  --accent-red: #f85149;
+  --accent-cyan: #39d2c0;
+  --shadow-sm: 0 1px 0 rgba(0,0,0,0.15);
+  --shadow-md: 0 3px 6px rgba(0,0,0,0.25);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --transition-fast: 0.15s ease;
   --transition-base: 0.25s ease;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', 'Fira Mono', Menlo, Consolas, monospace;
 }
 
-/* ---- Body & Background ---- */
+/* ---- Reset body for dark mode ---- */
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
-/* ---- Site Header ---- */
+/* ---- Site Header (sticky, glass-like dark) ---- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
-  padding-top: 14px;
-  padding-bottom: 14px;
+  background: rgba(13, 17, 23, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-default);
+  padding-top: 12px;
+  padding-bottom: 12px;
   margin-bottom: 0;
-  box-shadow: 0 1px 3px var(--color-shadow);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04);
 }
 
 .site-header h1 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.3px;
 }
 
 .site-header h1 a {
-  color: var(--color-text);
-  transition: color var(--transition-fast);
+  color: var(--text-primary);
 }
 
 .site-header h1 a:hover {
-  color: var(--color-primary);
+  color: var(--accent-blue);
+  text-decoration: none;
 }
 
 .site-header h1 .octicon {
-  color: var(--color-primary);
+  color: var(--accent-green);
 }
 
 .site-header-nav-item {
-  color: var(--color-text-muted);
+  color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.925rem;
-  padding: 6px 12px 14px;
+  font-size: 0.9rem;
+  padding: 6px 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  letter-spacing: -0.2px;
   transition: color var(--transition-fast);
-  position: relative;
 }
 
 .site-header-nav-item:hover {
-  color: var(--color-primary);
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
 .site-header-nav-item.selected {
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue);
   font-weight: 600;
 }
 
-/* ---- Banner / Collection Head ---- */
+/* Hamburger menu */
+.collapsed .icon-bar {
+  background-color: var(--text-secondary) !important;
+}
+
+/* ---- Banner / Hero (terminal-inspired) ---- */
 .collection-head,
 .home .banner,
 .home .site-header {
-  background: linear-gradient(135deg, #4f6ef7 0%, #7c5cfc 50%, #a78bfa 100%) !important;
-  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.08);
+  background: linear-gradient(165deg, #0d1117 0%, #161b22 40%, #0d1117 100%) !important;
+  border-bottom: 1px solid var(--border-default) !important;
+  box-shadow: none !important;
 }
 
 .collection-head.small {
-  background: linear-gradient(135deg, #4f6ef7 0%, #7c5cfc 50%, #a78bfa 100%) !important;
+  background: linear-gradient(165deg, #0d1117 0%, #161b22 40%, #0d1117 100%) !important;
 }
 
 .home .banner {
   margin-top: -20px;
-  padding: 60px 0 50px;
+  padding: 50px 0 40px;
+  position: relative;
+}
+
+/* Terminal prompt decoration on homepage banner */
+.home .banner .collection-header#sub-title::before {
+  content: '> ';
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 .collection-head {
-  padding: 40px 0;
+  padding: 36px 0;
   margin-top: -20px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .collection-head .collection-header {
   font-weight: 700;
   letter-spacing: -0.5px;
+  font-size: 2.5rem;
 }
 
-.collection-head .collection-title {
-  padding: 10px 0;
+.collection-head .collection-title h1 {
+  font-family: var(--font-mono);
+  color: var(--accent-blue);
 }
 
 .collection-head .collection-info .meta-info {
-  opacity: 0.85;
-  font-size: 14px;
+  opacity: 0.75;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
 }
 
 .collection-head .collection-info .meta-info a {
+  color: var(--accent-blue);
   opacity: 0.9;
   transition: opacity var(--transition-fast);
 }
 
 .collection-head .collection-info .meta-info a:hover {
   opacity: 1;
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+.collection-head a {
+  color: var(--accent-blue);
 }
 
 /* ---- Content Container ---- */
 .container.content {
-  padding-top: 10px;
+  padding-top: 24px;
 }
 
 /* ---- Repo List (Homepage Post Cards) ---- */
@@ -139,55 +177,61 @@ body {
 }
 
 .repo-list-item {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--accent-blue);
   border-radius: var(--radius-md);
-  padding: 22px 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 3px var(--color-shadow);
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
 
 .repo-list-item:hover {
-  box-shadow: 0 4px 16px var(--color-shadow-hover);
+  border-color: var(--accent-blue);
+  border-left-color: var(--accent-purple);
+  box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
 .repo-list-name {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .repo-list-name a {
-  color: var(--color-text);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
   transition: color var(--transition-fast);
 }
 
 .repo-list-name a:hover {
-  color: var(--color-primary);
+  color: var(--accent-blue);
   text-decoration: none;
 }
 
 .repo-list-description {
-  color: var(--color-text-muted);
-  font-size: 14px;
+  color: var(--text-secondary);
+  font-size: 13px;
   line-height: 1.6;
   margin-bottom: 10px;
 }
 
 .repo-list-meta {
-  font-size: 12px;
-  color: #94a3b8;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
 }
 
 .repo-list-meta .meta-info a {
-  color: #94a3b8;
+  color: var(--text-tertiary);
   transition: color var(--transition-fast);
 }
 
 .repo-list-meta .meta-info a:hover {
-  color: var(--color-primary);
+  color: var(--accent-blue);
 }
 
 /* ---- Posts List (Categories / Algorithm pages) ---- */
@@ -197,118 +241,185 @@ body {
 }
 
 .posts-list-item {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--accent-green);
   border-radius: var(--radius-sm);
-  padding: 14px 18px;
-  margin: 8px 0;
-  box-shadow: 0 1px 2px var(--color-shadow);
-  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  padding: 13px 18px;
+  margin: 7px 0;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 14px;
 }
 
 .posts-list-item:hover {
-  box-shadow: 0 2px 8px var(--color-shadow-hover);
-  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--accent-cyan);
 }
 
 .posts-list-item a {
-  color: var(--color-text);
+  color: var(--text-primary);
   font-weight: 500;
   transition: color var(--transition-fast);
   flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
 }
 
 .posts-list-item a:hover {
-  color: var(--color-primary);
+  color: var(--accent-blue);
   text-decoration: none;
 }
 
 .posts-list-meta {
-  font-size: 12px;
-  color: #94a3b8;
+  font-size: 11px;
+  color: var(--text-tertiary);
   white-space: nowrap;
   background: transparent;
   min-width: 80px;
+  font-family: var(--font-mono);
 }
 
-/* Category headings */
+/* Category/section headings */
 .posts-content h3 {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--accent-blue);
   margin-top: 32px;
   margin-bottom: 12px;
   padding-bottom: 6px;
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: 1px solid var(--border-default);
+  font-family: var(--font-mono);
   letter-spacing: -0.2px;
+}
+
+.posts-content h3::before {
+  content: '# ';
+  color: var(--text-tertiary);
+  font-weight: 400;
 }
 
 .posts-content h3:first-child {
   margin-top: 0;
 }
 
-/* ---- Markdown Body ---- */
+/* ---- Markdown Body (Article page) ---- */
 .markdown-body {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   padding: 28px 32px;
-  box-shadow: 0 1px 3px var(--color-shadow);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
 }
 
 .markdown-body h1,
 .markdown-body h2 {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--border-default);
   padding-bottom: 0.35em;
+  color: var(--text-primary);
 }
 
-.markdown-body h1 { color: var(--color-text); font-weight: 700; }
-.markdown-body h2 { color: var(--color-text); font-weight: 600; margin-top: 1.5em; }
-.markdown-body h3 { color: var(--color-text); font-weight: 600; }
+.markdown-body h1 { font-weight: 700; font-size: 1.85em; }
+.markdown-body h2 { font-weight: 600; margin-top: 1.5em; font-size: 1.4em; }
+.markdown-body h3 { color: var(--text-primary); font-weight: 600; }
+.markdown-body h4 { color: var(--text-secondary); }
+
+.markdown-body p,
+.markdown-body li {
+  color: var(--text-primary);
+}
 
 .markdown-body a {
-  color: var(--color-primary);
+  color: var(--accent-blue);
+}
+
+.markdown-body a:hover {
+  color: var(--accent-cyan);
 }
 
 .markdown-body blockquote {
-  border-left: 4px solid var(--color-primary);
-  background: #f8fafc;
+  border-left: 3px solid var(--accent-blue);
+  background: var(--bg-tertiary);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   padding: 12px 18px;
-  color: var(--color-text-muted);
+  color: var(--text-secondary);
 }
 
+.markdown-body blockquote p {
+  color: var(--text-secondary);
+}
+
+/* Code blocks — VS Code editor pane style */
 .markdown-body pre {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: #1e293b;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: #0d1117;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.markdown-body pre::before {
+  content: 'CODE';
+  display: block;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-default);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin: -16px -16px 16px -16px;
 }
 
 .markdown-body pre code {
-  color: #e2e8f0;
+  color: #c9d1d9;
+  font-size: 13px;
+  font-family: var(--font-mono);
 }
 
 .markdown-body code {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #e11d48;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  color: var(--accent-orange);
   border-radius: 4px;
   padding: 2px 6px;
-  font-size: 0.9em;
+  font-size: 0.875em;
+  font-family: var(--font-mono);
 }
 
 .markdown-body table {
   border-radius: var(--radius-sm);
   overflow: hidden;
-  box-shadow: 0 1px 3px var(--color-shadow);
 }
 
 .markdown-body table th {
-  background: #f1f5f9;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
   font-weight: 600;
+  border-color: var(--border-default);
+}
+
+.markdown-body table td {
+  border-color: var(--border-default);
+  color: var(--text-secondary);
+}
+
+.markdown-body table tr {
+  background: var(--bg-secondary);
+  border-color: var(--border-default);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background: var(--bg-tertiary);
+}
+
+.markdown-body hr {
+  background-color: var(--border-default);
 }
 
 /* ---- Pagination ---- */
@@ -317,73 +428,125 @@ body {
 }
 
 .pagination .btn-outline {
-  border: 1px solid var(--color-border);
-  color: var(--color-text-muted);
-  background: var(--color-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
   border-radius: var(--radius-sm);
   font-weight: 500;
   transition: all var(--transition-fast);
   padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
 
 .pagination .btn-outline:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: #eef2ff;
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  background: rgba(88, 166, 255, 0.08);
 }
 
 .pagination a.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
   color: #fff;
 }
 
+.pagination button[disabled] {
+  background: var(--bg-primary) !important;
+  color: var(--text-tertiary) !important;
+  border-color: var(--border-muted) !important;
+  cursor: default;
+}
+
 /* ---- Sidebar ---- */
+.one-third-column,
+.column.one-third,
+.column.one-fourth {
+  color: var(--text-secondary);
+}
+
+/* Sidebar search */
+.subnav-search-input {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+}
+
+.subnav-search-input:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+/* Sidebar categories cloud / nav */
 .sidebar-categories-cloud a,
-.sidebar-categories-nav a {
-  color: var(--color-text-muted);
+.sidebar-categories-nav a,
+.boxed-group a {
+  color: var(--text-secondary);
   transition: color var(--transition-fast);
 }
 
 .sidebar-categories-cloud a:hover,
-.sidebar-categories-nav a:hover {
-  color: var(--color-primary);
+.sidebar-categories-nav a:hover,
+.boxed-group a:hover {
+  color: var(--accent-blue);
   text-decoration: none;
 }
 
-/* ---- Article Page ---- */
-.article-content {
-  background: var(--color-surface);
+/* Boxed group (sidebar panels) */
+.boxed-group {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  overflow: hidden;
 }
 
-/* ---- Share Buttons ---- */
+.boxed-group > h3 {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-default);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+.boxed-group .boxed-group-inner {
+  color: var(--text-secondary);
+}
+
+/* ---- Share ---- */
 .share {
   margin: 24px 0;
 }
 
 /* ---- Comments ---- */
 .comment {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   padding: 20px 24px;
-  box-shadow: 0 1px 3px var(--color-shadow);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ---- Footer ---- */
 .site-footer {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--border-default);
   margin-top: 48px;
   padding-top: 32px;
   padding-bottom: 32px;
-  color: var(--color-text-muted);
+  color: var(--text-tertiary);
   text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
 }
 
 .site-footer .copyright {
   float: none;
   margin-bottom: 8px;
+  color: var(--text-tertiary);
 }
 
 .site-footer-links {
@@ -391,93 +554,59 @@ body {
   text-align: center;
 }
 
+.site-footer-links a {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.site-footer-links a:hover {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
 .site-footer .octicon-mark-github {
   position: static;
   display: block;
   margin: 12px auto;
-  color: #cbd5e1;
+  color: var(--text-tertiary);
   transition: color var(--transition-fast);
 }
 
 .site-footer .octicon-mark-github:hover {
-  color: var(--color-text-muted);
+  color: var(--text-secondary);
 }
 
-/* ---- Back to Top Button ---- */
+/* ---- Back to Top ---- */
+.tools-wrapper a {
+  color: var(--text-secondary);
+}
+
 .tools-wrapper .gotop {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px var(--color-shadow);
-  transition: box-shadow var(--transition-base);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
 }
 
 .tools-wrapper .gotop:hover {
-  box-shadow: 0 4px 12px var(--color-shadow-hover);
-}
-
-.tools-wrapper a {
-  color: var(--color-text-muted);
-}
-
-/* ---- Tags & Meta ---- */
-.collection-head .collection-info .meta-info a,
-.repo-list-meta .meta-info a,
-.posts-list-meta a {
-  color: #94a3b8;
-}
-
-/* ---- Mobile Enhancements ---- */
-@media (max-width: 50em) {
-  .site-header {
-    position: sticky;
-    padding-top: 10px;
-    padding-bottom: 6px;
-  }
-
-  .repo-list-item {
-    padding: 16px 18px;
-    border-radius: var(--radius-sm);
-  }
-
-  .markdown-body {
-    padding: 16px 18px;
-  }
-
-  .home .banner {
-    padding: 32px 0 28px;
-  }
-
-  .collection-head {
-    padding: 24px 0;
-  }
-
-  .collection-head .collection-header {
-    font-size: 1.5rem !important;
-  }
-
-  .collapsed .icon-bar {
-    background-color: #fff;
-  }
-
-  /* When homepage, icon bars need to be white on the colored banner */
-  .home .collapsed .icon-bar {
-    background-color: #fff;
-  }
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ---- Empty State ---- */
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: var(--color-text-muted);
-  background: var(--color-surface);
-  border: 2px dashed var(--color-border);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-default);
   border-radius: var(--radius-md);
   margin: 20px 0;
 }
@@ -488,12 +617,127 @@ body {
 }
 
 .empty-hint {
-  font-size: 0.9rem;
-  color: #94a3b8;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
 }
 
-/* ---- Print-friendly ---- */
+.empty-hint::before {
+  content: '// ';
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* ---- Top-most flag ---- */
+.top-most-flag {
+  color: var(--accent-red);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ---- GeoPattern backgrounds ---- */
+.geopattern {
+  opacity: 0.12;
+}
+
+/* ---- Homepage specific overrides ---- */
+.home .site-header {
+  background: rgba(13, 17, 23, 0.9) !important;
+  border-bottom: 1px solid var(--border-default) !important;
+}
+
+.home .banner {
+  background-color: var(--bg-primary) !important;
+}
+
+/* ---- Article meta info ---- */
+.collection-info .meta-info {
+  color: var(--text-secondary);
+}
+
+/* ---- Fix for primer-css boxed-group in dark mode ---- */
+.boxed-group .boxed-group-inner .mini-repo-list-item {
+  border-bottom: 1px solid var(--border-muted);
+  color: var(--text-secondary);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 50em) {
+  .site-header {
+    position: sticky;
+    padding-top: 8px;
+    padding-bottom: 4px;
+  }
+
+  .site-header h1 {
+    font-size: 1.1em;
+  }
+
+  .repo-list-item {
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+  }
+
+  .markdown-body {
+    padding: 16px 18px;
+  }
+
+  .home .banner {
+    padding: 28px 0 24px;
+  }
+
+  .collection-head {
+    padding: 20px 0;
+  }
+
+  .collection-head .collection-header {
+    font-size: 1.35rem !important;
+  }
+
+  .site-header .site-header-nav .site-header-nav-item {
+    color: var(--text-secondary);
+  }
+
+  .site-header .site-header-nav .site-header-nav-item.selected {
+    color: var(--accent-blue);
+  }
+
+  .home .collapsed .icon-bar {
+    background-color: var(--text-secondary);
+  }
+}
+
+/* ---- Scrollbar styling (WebKit) ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(88, 166, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* ---- Print ---- */
 @media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
   .site-header {
     position: static;
   }
@@ -501,5 +745,6 @@ body {
   .posts-list-item {
     box-shadow: none;
     break-inside: avoid;
+    border-left: none;
   }
 }
